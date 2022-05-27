@@ -3,10 +3,12 @@
 }
 .nav {
   border-bottom: 1px solid #e87e14;
+  z-index: 2;
 }
 
 .image-detail{
   border: 1px solid silver;
+  border-radius: 4%;
   margin: 20px 0 0 20%;
 }
 
@@ -28,4 +30,12 @@
 
 .math-icon {
   color: #e87e14;
+}
+
+.order-button {
+  background-color:#e87e14;
+  color: #ffd500;
+  padding: 0 25px;
+  border: 1px solid #ffd500;
+  border-radius: 10px;
 }

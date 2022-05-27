@@ -3,7 +3,23 @@
   <mat-card>
     <div class="row">
       <div class="col-md-12 col-sm-12 col-lg-6">
-        <img class="image-detail" src="../../../assets/download.jpeg" width="50%" height="auto">
+        <lib-ngx-image-zoom
+          [thumbImage]=myThumbnail
+          [fullImage]=myFullresImage
+          [magnification]="2"
+          [enableScrollZoom]="true"
+          [enableLens]="true"
+          [lensWidth]="100"
+        ></lib-ngx-image-zoom>
+        <div class="row mt-4">
+          <div class="col-md-12 col-sm-12 col-lg-4 align-items-center justify-content-center">
+            <img class="image-detail" src="../../../assets/download.jpeg" width="50%" height="auto">
+          </div><div class="col-md-12 col-sm-12 col-lg-4">
+          <img class="image-detail" src="../../../assets/download.jpeg" width="50%" height="auto">
+        </div><div class="col-md-12 col-sm-12 col-lg-4">
+          <img class="image-detail" src="../../../assets/download.jpeg" width="50%" height="auto">
+        </div>
+        </div>
       </div>
       <div class="col-md-12 col-sm-12 col-lg-6">
         <p class="product-name">iPhone 13 Pro Max</p>
@@ -20,22 +36,25 @@
             Letraset sheets containing Lorem Ipsum passages, and more recently with desktop publishing
             software like Aldus PageMaker including versions of Lorem Ipsum. </p>
         </div>
-        <div class="col-lg-4">
+        <div class="col-lg-12 col-md-12 col-sm-12">
           <div class="input-group">
             <span class="input-group-btn">
-              <button mat-button type="button" class="math-button" data-type="minus" data-field="">
+              <button mat-button type="button" class="math-button" data-type="minus" data-field="" (click)="decrementValue()">
                 <span class="math-icon fa fa-minus"></span>
               </button>
             </span>
-            <input type="text" id="quantity" name="quantity" class="form-control input-number text-center" value="0" min="1"
-                   max="100">
+            <div [formGroup]="myGroup">
+              <input formControlName="quantity" type="number" id="quantity" name="quantity" value = "{{quantity.value}}" class="form-control input-number text-center" min="1"
+                     max="100">
+            </div>
             <span class="input-group-btn">
               <button mat-button type="button" class="math-button"
-                      data-type="plus" data-field="">
+                      data-type="plus" data-field="" (click)="incrementValue()">
                 <span class="math-icon fa fa-plus text-center"></span>
               </button>
             </span>
           </div>
+          <button class="order-button mt-5" mat-button [disabled]="disableOrderButton"> Order </button>
         </div>
       </div>
     </div>
